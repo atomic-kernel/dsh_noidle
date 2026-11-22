@@ -1,0 +1,14 @@
+# Example loader row for ~/.dsh/profiles/<profile>/cordis.patch.yml
+#
+# Append this block to the patch file; the relative path is resolved against
+# that file, so plugin/ must sit at <profile>/plugins/turn-keepalive/.
+- insert:
+    - id: turn-keepalive
+      name: ./plugins/turn-keepalive/index.js
+      config:
+        # Minimum gap between two steers for the same agent. The first one is
+        # immediate; later ones are delayed so an answer-happy model cannot
+        # spin the hook at full speed.
+        minSteerIntervalMs: 120000
+        # Optional: only guard some job kinds.
+        # kinds: ['bash']
